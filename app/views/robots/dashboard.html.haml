@@ -1,0 +1,38 @@
+= javascript_pack_tag 'robots'
+
+%h1.text-center.m-5 Toy Robot Simulator
+
+.container
+  .row
+    .col-8
+      %table.table.table-bordered.robot-table
+        %tbody
+          - (1..TOTAL_ROWS).to_a.reverse.each do |row|
+            %tr
+              - (1..TOTAL_COLUMNS).each do |col|
+                %td{id: "#{row}-#{col}", class: 'text-center font-weight-bold h3'}
+                  = EMPTY_ROW_COLUMN_VALUE
+
+    .col-4.text-center
+      %h4
+        Note: NORTH Direction &#8679
+
+      %hr
+
+      %div.mt-4
+        %button.mr-3.btn.btn-md.btn-primary#left Left
+        %button.mr-3.btn.btn-md.btn-primary#right Right
+        %button.mr-3.btn.btn-md.btn-success#move Move
+        %button.mr-3.btn.btn-md.btn-warning#report Report
+
+      = select_tag "row position", options_for_select((1..TOTAL_ROWS).to_a), |
+        prompt: "Select Row", id: 'row-position', class: 'form-control mt-5'
+      = select_tag "column postion", options_for_select((1..TOTAL_COLUMNS).to_a), |
+        prompt: "Select Column", id: 'column-position', class: 'form-control mt-3'
+      = select_tag "directoin", options_for_select(DIRECTIONS), |
+        prompt: "Select Direction", id: 'direction', class: 'form-control mt-3'
+
+      %button.mt-4.btn.btn-md.btn-success#place Place
+
+  .row
+    (0,0)

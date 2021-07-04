@@ -1,0 +1,1 @@
+Robot.setup! if Robot.table_exists?

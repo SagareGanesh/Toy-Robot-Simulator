@@ -1,0 +1,17 @@
+// Place all the styles related to the robots controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.robot-table {
+  table-layout: fixed;
+  border: 2px solid #000000;
+
+  tbody > tr > td {
+    border: 1px solid #000000;
+    overflow: hidden;
+  }
+
+  tr {
+    height: 80px;
+  }
+}
